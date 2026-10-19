@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Catálogo Digital Mayorista | Demo TRÍAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Banner Informativo -->
+  <div class="top-banner">
+    <span>🚚 Envíos a todo San Juan | Pedido mínimo mayorista: <strong>$50.000</strong></span>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-content">
+      <div class="brand-info">
+        <div class="brand-logo">📦</div>
+        <div>
+          <h1 id="business-name">DISTRIBUIDORA SAN JUAN</h1>
+          <p class="brand-subtitle">Catálogo Mayorista & Precios al Día</p>
+        </div>
+      </div>
+      <button class="cart-badge-btn" id="open-cart-btn" aria-label="Ver carrito">
+        🛒
+        <span class="cart-counter" id="cart-counter">0</span>
+      </button>
+    </div>
+
+    <!-- Barra de búsqueda instantánea -->
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Buscar por producto, código o medida... (ej: vaso, fardo, tornillo)">
+      <button class="clear-search-btn" id="clear-search" style="display: none;">✕</button>
+    </div>
+
+    <!-- Filtros de categorías -->
+    <div class="categories-scroll" id="categories-container">
+      <!-- Se cargan dinámicamente -->
+    </div>
+  </header>
+
+  <!-- Contenedor principal de productos -->
+  <main class="products-section">
+    <div class="section-meta">
+      <span id="results-count">Cargando productos...</span>
+      <span class="live-indicator">● Precios actualizados hoy</span>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+      <!-- Los productos se inyectan acá con JS -->
+    </div>
+
+    <div class="empty-state" id="empty-state" style="display: none;">
+      <p>🔍 No se encontraron productos para tu búsqueda.</p>
+      <button class="btn-secondary" id="reset-filter-btn">Ver todo el catálogo</button>
+    </div>
+  </main>
+
+  <!-- Botón Flotante de Carrito / WhatsApp Bar -->
+  <div class="floating-cart-bar" id="floating-cart-bar">
+    <div class="floating-cart-info">
+      <span class="floating-cart-qty" id="floating-qty">0 productos</span>
+      <strong class="floating-cart-total" id="floating-total">$0</strong>
+    </div>
+    <button class="btn-checkout" id="checkout-trigger-btn">
+      <span>Ver Pedido</span>
+      <span class="arrow-icon">→</span>
+    </button>
+  </div>
+
+  <!-- Modal / Drawer del Carrito -->
+  <div class="modal-backdrop" id="cart-modal">
+    <div class="modal-drawer">
+      <div class="modal-header">
+        <h2>Tu Pedido Mayorista</h2>
+        <button class="close-modal-btn" id="close-cart-btn">✕</button>
+      </div>
+
+      <div class="cart-items-container" id="cart-items">
+        <!-- Items agregados -->
+      </div>
+
+      <div class="cart-summary" id="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal estimado:</span>
+          <span id="summary-subtotal">$0</span>
+        </div>
+        <div class="summary-row min-order-notice" id="min-order-alert">
+          <small>⚠️ Mínimo de compra sugerido: $50.000</small>
+        </div>
+      </div>
+
+      <!-- Formulario para armar el mensaje de WhatsApp -->
+      <form class="checkout-form" id="checkout-form">
+        <h3>Datos para el remito / despacho</h3>
+        
+        <div class="form-group">
+          <label for="client-name">Nombre / Contacto *</label>
+          <input type="text" id="client-name" placeholder="Ej: Carlos Gómez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="business-client">Nombre de tu Comercio / Kiosco / Taller</label>
+          <input type="text" id="business-client" placeholder="Ej: Ferretería Central / Kiosco El Sol">
+        </div>
+
+        <div class="form-group">
+          <label for="client-address">Dirección de entrega / Localidad *</label>
+          <input type="text" id="client-address" placeholder="Ej: Rawson, San Juan (o Retiro por sucursal)" required>
+        </div>
+
+        <div class="form-group">
+          <label for="client-notes">Aclaraciones / Método de pago</label>
+          <input type="text" id="client-notes" placeholder="Ej: Transferencia / Pago al recibir">
+        </div>
+
+        <button type="submit" class="btn-send-whatsapp" id="send-whatsapp-btn">
+          <span>📲 Enviar Pedido a WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer con créditos de TRÍAS -->
+  <footer class="main-footer">
+    <p>Desarrollado para distribuidoras y mayoristas por <strong>TRÍAS</strong> - San Juan, Argentina</p>
+    <small>Sistema ultraliviano sincronizado con Excel de gestión.</small>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
