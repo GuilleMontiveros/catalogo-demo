@@ -2,7 +2,7 @@
 // Fácilmente editable: se puede pegar o exportar desde un Excel / Google Sheets
 window.CATALOG_CONFIG = {
   businessName: "DISTRIBUIDORA SAN JUAN",
-  whatsappNumber: "5492645671768", // Cambiar por el número de WhatsApp de destino (formato internacional sin signos)
+  whatsappNumber: "5492", // Cambiar por el número de WhatsApp de destino (formato internacional sin signos)
   minOrder: 50000,
   currency: "$"
 };
